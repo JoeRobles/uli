@@ -1,0 +1,27 @@
+{
+  "name": "uli",
+  "version": "1.0.0",
+  "homepage": "https://github.com/JoeRobles/uli",
+  "authors": [
+    "Joe Robles <joe.robles.pdj@gmail.com>"
+  ],
+  "description": "United Life Insurance",
+  "main": "app.php",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest"
+  }
+
+}
