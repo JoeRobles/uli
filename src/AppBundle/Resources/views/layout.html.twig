@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Welcome{% endblock %}
+
+{% block stylesheets -%}
+    {{ parent() }}
+    {% stylesheets output='css/main.css' filter='cssrewrite' debug=false
+        'bundles/app/css/styles.css' -%}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body -%}
+            {% for type, flashMessage in app.session.flashbag.all() %}
+            <div class="alert alert-{{ type }} fade in">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                {% if flashMessage.title is defined %}
+                <strong>{{ flashMessage.title }}</strong>
+                {{ flashMessage.message }}
+                {% else %}
+                {{ type }}
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div id="flash_message" class="alert hidden">
+                <strong id="flash_title"></strong>
+            </div>
+            <div id="uliModal" class="modal fade"></div>
+            <nav class="navbar navbar-static-top navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('uli_app_default_index') }}">
+                        {%- image '@AppBundle/Resources/public/images/uli-logo.png' -%}
+                        <img src="{{ asset_url }}" title="ULI" alt="ULI" width="354" height="39">
+                        {%- endimage -%}
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="wrapper">
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts output='js/main.js' debug=false
+        '@AppBundle/Resources/public/js/scripts.js' -%}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
