@@ -1,0 +1,29 @@
+web/bundles/
+app/cache/*
+app/config/parameters.yml
+app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+build/
+vendor/
+bin/
+composer.phar
+bower_components/
+node_modules/
+
+# Public Symfony2 web files
+web/css/
+web/images/
+web/js/
+web/uploads/
+web/fonts/
+
+# IDEs files Eclipse, Zend Studio, Netbeans, PHPStorm y TextMate2
+.buildpath
+.project
+.settings
+nbproject/
+.idea
+.tm_properties
+(?i)\~
+*~
