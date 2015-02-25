@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets -%}
+        {% stylesheets output='css/base.css' filter='cssrewrite' debug=false
+        'bundles/app/bootstrap/css/bootstrap.min.css' -%}
+            <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+        {% endstylesheets %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <!--[if lt IE 9]>
+        <div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+                <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+            </a>
+        </div>
+    <![endif]-->
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        
+        {% block javascripts %}
+        {% javascripts output='js/base.js' debug=false
+        '@AppBundle/Resources/public/js/jquery.min.js'
+        '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js' -%}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>
