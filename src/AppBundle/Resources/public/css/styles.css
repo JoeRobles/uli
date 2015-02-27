@@ -14,11 +14,10 @@
 }
 
 .phone {
+    font-size: 30px;
     padding:9px 0px;
 }
-.speak {
-    padding-right: 9px;
-}
+
 .navbar-default {
     background-color: #fff;
     border-color: #e7e7e7;
